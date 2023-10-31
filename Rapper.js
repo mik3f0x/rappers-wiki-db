@@ -3,30 +3,30 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 let RapperSchema = new Schema({
-    name: {
+    Name: {
         type: String,
         trim: true
     },
-    wikipedia_bio: {
+    Wikipedia_Bio: {
         type: String
     },
-    date_of_birth: {
+    Date_of_Birth: {
         type: String,
         trim: true
     },
-    origin: {
+    Origin: {
         type: String,
         trim: true
     },
-    place_of_birth: {
+    Place_of_Birth: {
         type: String,
         trim: true
     },
-    birth_name: {
+    Birth_Name: {
         type: String,
         trim: true
     },
-    genres: [{
+    Genres: [{
         type: String,
         trim: true,
         lowercase: true
