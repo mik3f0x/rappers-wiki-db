@@ -9,21 +9,37 @@ export const getRappers = async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   };
-  
+
   export const getRapper = async (req, res) => {
     try {
-        const { Name } = req.params;
-        const rapper = await Rapper.find({Name});
+        const { id } = req.params;
+        const rapper = await Rapper.findById(id);
 
-    if (rapper) {
-        return res.json(rapper);
-    }
+        if (rapper) {
+            return res.json(rapper);
+        }
 
-    res.stats(404).json({ message: "Rapper not found!" });
+        res.status(404).json({ message: "Rapper not found!" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
+    }
+}
+  
+  export const getRapperByName = async (req, res) => {
+    try {
+        const { name } = req.params;
+        const rapper = await Rapper.find({Name: name});
+
+        if (rapper[0]) {
+            return res.json(rapper[0]);
         }
+
+        res.status(404).json({ message: "Rapper not found!" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error.message });
+    }
 }
 
 export const createRapper = async (req, res) => {
@@ -39,8 +55,8 @@ export const createRapper = async (req, res) => {
   
   export const updateRapper = async (req, res) => {
     try {
-      const { Name } = req.params;
-      const rapper = await Rapper.findOneAndUpdate({Name}, req.body);
+      const { name } = req.params;
+      const rapper = await Rapper.findOneAndUpdate({Name: name}, req.body);
   
       res.status(201).json(rapper);
     } catch (error) {
@@ -51,8 +67,8 @@ export const createRapper = async (req, res) => {
   
   export const deleteRapper = async (req, res) => {
     try {
-      const { Name } = req.params;
-      const deleted = await Rapper.findOneAndDelete({Name});
+      const { name } = req.params;
+      const deleted = await Rapper.findOneAndDelete({Name: name});
   
       if (deleted) {
         return res.status(200).send("Rapper deleted!");

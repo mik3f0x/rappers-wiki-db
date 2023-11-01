@@ -4,9 +4,11 @@ import * as controllers from "./controller.js";
 const router = Router();
 
 router.get("/", controllers.getRappers);
-router.get("/name/:Name", controllers.getRapper);
+router.get("/name/:name", controllers.getRapperByName);
 router.post("/", controllers.createRapper);
-router.put("/name/:Name", controllers.updateRapper);
-router.delete("/name/:Name", controllers.deleteRapper);
+router.put("/name/:name", controllers.updateRapper);
+router.delete("/name/:name", controllers.deleteRapper);
+
+router.get("/:id", controllers.getRapper);
 
 export default router;
