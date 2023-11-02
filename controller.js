@@ -10,7 +10,7 @@ export const getRappers = async (req, res) => {
     }
   };
 
-  export const getRapper = async (req, res) => {
+export const getRapper = async (req, res) => {
     try {
         const { id } = req.params;
         const rapper = await Rapper.findById(id);
@@ -26,7 +26,7 @@ export const getRappers = async (req, res) => {
     }
 }
   
-  export const getRapperByName = async (req, res) => {
+export const getRapperByName = async (req, res) => {
     try {
         const { name } = req.params;
         const rapper = await Rapper.find({Name: name});
@@ -40,6 +40,38 @@ export const getRappers = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: error.message });
     }
+}
+
+export const getRappersByGenre = async (req, res) => {
+  try {
+      const { genre } = req.params;
+      const rapper = await Rapper.find({Genres: { $elemMatch: {$eq: genre} }});
+
+      if (rapper[0]) {
+          return res.json(rapper);
+      }
+
+      res.status(404).json({ message: "No rapper with that genre!" });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: error.message });
+  }
+}
+
+export const getRappersByLocation = async (req, res) => {
+  try {
+      const { location } = req.params;
+      const rapper = await Rapper.find({ $or: [{Origin: { "$regex": location, "$options": "i" }}, {Place_of_Birth: { "$regex": location, "$options": "i" }}]});
+
+      if (rapper[0]) {
+          return res.json(rapper);
+      }
+
+      res.status(404).json({ message: "No rapper associated with that location!" });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: error.message });
+  }
 }
 
 export const createRapper = async (req, res) => {

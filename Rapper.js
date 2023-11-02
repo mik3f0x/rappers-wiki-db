@@ -11,6 +11,9 @@ let RapperSchema = new Schema({
         type: String
     },
     Date_of_Birth: {
+        type: Date,
+    },
+    Date_of_Birth_incomplete: {
         type: String,
         trim: true
     },
