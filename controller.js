@@ -74,6 +74,22 @@ export const getRappersByLocation = async (req, res) => {
   }
 }
 
+export const getRappersByDateRange = async (req, res) => {
+  try {
+      const { year } = req.params;
+      const rapper = await Rapper.find({Date_of_Birth: {$gte: new Date(year, 1, 1), $lt: new Date(year, 12, 31)}});
+
+      if (rapper[0]) {
+          return res.json(rapper);
+      }
+
+      res.status(404).json({ message: "No rapper born that year!" });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: error.message });
+  }
+}
+
 export const createRapper = async (req, res) => {
     try {
       const rapper = new Rapper(req.body);
