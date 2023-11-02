@@ -76,14 +76,17 @@ export const getRappersByLocation = async (req, res) => {
 
 export const getRappersByDateRange = async (req, res) => {
   try {
-      const { year } = req.params;
-      const rapper = await Rapper.find({Date_of_Birth: {$gte: new Date(year, 1, 1), $lt: new Date(year, 12, 31)}});
+      const lower = req.params.lower;
+      const upper = req.params.upper ? req.params.upper : lower;
+      const rapper = await Rapper.find({Date_of_Birth: {$gte: new Date(lower, 0, 0), $lt: new Date(upper, 11, 30)}});
+
+      if (lower > upper) return res.json({ message: "End year cannot be earlier than start year"})
 
       if (rapper[0]) {
           return res.json(rapper);
       }
 
-      res.status(404).json({ message: "No rapper born that year!" });
+      res.status(404).json({ message: "No rapper born during that time!" });
   } catch (error) {
       console.error(error);
       res.status(500).json({ error: error.message });
