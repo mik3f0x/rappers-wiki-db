@@ -6,8 +6,7 @@ Rappers Wiki API is a RESTful API, that pulls from Wikipedia's [List of Rappers]
 
 ### Usage
 
-- Run npm start to start the application.
-- Connect to the API using Postman on port 3000.
+- (https://rapper-wiki-api-6c25ffa72432.herokuapp.com/)
 
 ### API Endpoints
 
