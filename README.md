@@ -34,7 +34,7 @@ All genres are converted to all-lowercase during seeding. Searching by genre is 
 
 ## Usage
 
-- https://rapper-wiki-api-6c25ffa72432.herokuapp.com/
+Base URL: https://rapper-wiki-api-6c25ffa72432.herokuapp.com/
 
 ## API Endpoints
 
