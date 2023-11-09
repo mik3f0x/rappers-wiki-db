@@ -12,7 +12,7 @@ Each rapper has a bio snippet which may or may not include the fields in this ex
 
 ### Special Concerns
 
-Wikipedia is highly inconsistent with formatting, many biographies have ambiguous, poorly formatted, or incomplete entries for dates and locations:
+Wikipedia is highly inconsistent with formatting and standards---many biographies have ambiguous, poorly formatted, or incomplete entries for dates and locations:
 
 ![Pepa bio with poorly formatted Date of Birth](/README_images/rapper_pepa_crappy_dob.png?raw=true "Pepa bio with poorly formatted Date of Birth")
 
@@ -65,4 +65,3 @@ All genres are converted to all-lowercase during seeding. Searching by genre is 
 
 - [Mike Fox](https://github.com/mik3f0x)
 - [mikefox.ai](https://mikefox.ai)
-- ![alt text](https://avatars.githubusercontent.com/u/143910078?v=4)
