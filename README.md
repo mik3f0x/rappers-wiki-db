@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Rappers Wiki API is a RESTful API that uses a database pulled from Wikipedia's [List of Rappers](https://en.wikipedia.org/wiki/List_of_hip_hop_musicians). There are approximately 3,500 rappers on this list. The data was created using a Python script that pulls fields from each rapper’s Wikipedia bio infobox, and outputs to a CSV. Translating that CSV into JSON forms the database of this API.
+Rappers Wiki API is a RESTful API with full CRUD functionality that uses a database pulled from Wikipedia's [List of Rappers](https://en.wikipedia.org/wiki/List_of_hip_hop_musicians). There are approximately 3,500 rappers on this list. The data was created using a Python script that pulls fields from each rapper’s Wikipedia bio infobox, and outputs to a CSV. Translating that CSV into JSON forms the database of this API.
 
 ## Data Model
 
